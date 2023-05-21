@@ -29,17 +29,14 @@ function chk_login($inlognaam, $wachtwoord)
 	$output=false;
 	$sql = "SELECT * FROM gebruikers WHERE naam = '$inlognaam' AND wachtwoord= '$wachtwoord'";
 	echo $sql;
-	//$sql = "select * from users where username = '' or 1=1;'";    ' or 1='1 meegeven
-	//exit;
+	
 		
 		$result = $conn->query($sql);			
 		if ($result->num_rows > 0) 
 		{
-			$row = $result->fetch_assoc();
-			if ($row["naam"]==$inlognaam && $row["wachtwoord"]==$wachtwoord)
-			{
+			
 				$output=true;
-			}
+			
 		} 
 		$conn->close();
 		return $output;
